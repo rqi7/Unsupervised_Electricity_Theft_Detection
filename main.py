@@ -1,3 +1,8 @@
+'''
+Main function of the program.
+Read the data generated from tampered_data.py
+'''
+
 import pandas as pd
 import func
 
@@ -14,7 +19,7 @@ def main():
         
         ob = pd.read_csv("data/observed/observer_reading.csv", squeeze=True, header=0)
         
-        wavelet_w = func.wavedec_ac(input_data, ob, lvl=4)
+        wavelet_w = func.wavedec_ac(input_data, ob, lvl=4, interval=48)
         result_table.at[g_n, 'auc_proposed_method'] = func.compute_auc(wavelet_w, set(g_number) - set(t_id), set(t_id))
         result_table.at[g_n, 'map_proposed_method'] = func.MAPatN(wavelet_w, set(t_id), 20)
             
