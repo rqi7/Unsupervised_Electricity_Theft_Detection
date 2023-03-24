@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/616664549.svg)](https://zenodo.org/badge/latestdoi/616664549)
 # Unsupervised Electricity Theft Detection
 This is an implementation of [A Novel Unsupervised Data-Driven Method for Electricity Theft Detection in AMI Using Observer Meters](https://ieeexplore.ieee.org/abstract/document/9825697). This paper is published on [IEEE Transactions on Instrumentation and Measurement](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=19)
 
