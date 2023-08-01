@@ -332,3 +332,23 @@ def FDI_MIX(df, id, interval=48, days=30):
         elif fdi_type == 6:
             id, df[i] = FDI_6(df[i], i)
     return F_id, df
+
+# Giving a list, find out if the list contain specific number of contiuous 0 values.
+def find_con_0(lst, con_len):
+    for i in range(len(lst) - con_len + 1):
+        sum = 0
+        for j in range(con_len):
+            sum += lst[j + i]
+        if sum < 0.00001:
+            return True
+    return False
+
+# Three sigma rule of thumb
+def tsrt(df):
+    sigma = df.std()
+    mean = df.mean()
+    ndf = df.copy()
+    for i in range(1, len(df) - 1):
+        if df.iloc[i] > 3 * sigma + mean:
+            ndf.iloc[i] = (df.iloc[i-1] + df.iloc[i+1]) / 2
+    return ndf

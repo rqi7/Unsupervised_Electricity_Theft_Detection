@@ -29,7 +29,6 @@ def main():
     df = df.append(new_df)
 
     new_df = pd.read_csv(dir + "File6.txt", sep=" ", header=None)
-    # new_df =  full_df.loc[full_df[1] < filt_range]
     df = df.append(new_df)
 
     # filter out non SME data
@@ -47,23 +46,22 @@ def main():
         temp_df = temp_df.sort_index()
         temp_df['ts'] = temp_df.index
         temp_df.drop_duplicates(inplace=True, subset=['ts'])
+        # Filter out the bad data that contain too many consecutive 0
         if func.find_con_0(temp_df[i].tolist(), 5) == False:
-        # # temp_df.reset_index(inplace=True, drop=True)
             data[i] = temp_df[i]
         
 
 
 
     # filter out N/A
-
     data = data.fillna(data.mean())
+
+    # Apply three sigma rule of thumb into each readings.
     for id, reading in data.iteritems():
         data[id] = func.tsrt(reading)
-    # data = data.dropna(axis='columns')
     data = data[(month - 1) * day * 48 : month * day * 48]
     data.reset_index(inplace=True, drop=True)
-    # data = data.replace(0, np.nan)
-    # data = data.dropna(axis='columns')
+    
     print(data)
     data.to_csv(str(day) + "_day_" + str(month) + "_num.csv")
 
