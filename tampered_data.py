@@ -18,6 +18,7 @@ def main():
             g1 = pd.read_csv("data/groupedData/g" + str(i) + ".csv")
             if FDI_TYPE == 1:
                 ob = g1.sum(axis=1)
+                # generated observer data
                 ob.to_csv("data/observed/g" + str(i) + ".csv", index=False)
             g_number = g1.columns
             if FDI_TYPE == 1:
@@ -35,6 +36,7 @@ def main():
             elif FDI_TYPE == 7:
                 t_id, t_df = func.FDI_MIX(g1, g_number, interval=interval, days=days)
             g1 = t_df.combine_first(g1)
+            # generated tampered data
             g1.to_csv(dir + str(i) + ".csv", index=False)
             pd.Series(t_id).to_csv(dir + str(i) + "_id.csv", index=False, header=False)
 

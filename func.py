@@ -291,8 +291,9 @@ def FDI_6(df, id, interval=48, days=30):
         for day, i in g_df:  
             l = i
             if day in F_day:
+                mean_l = np.mean(l)
                 for t in range(len(l)):
-                    l.iloc[[t]] = np.mean(l) * random.uniform(0.20001, 0.79999)
+                    l.iloc[[t]] = mean_l * random.uniform(0.20001, 0.79999)
             ls = ls + list(l)
         n_df = pd.Series(ls)
         F_id = id
@@ -308,8 +309,9 @@ def FDI_6(df, id, interval=48, days=30):
             for day, i in g_df:  
                 l = i[c]
                 if day in F_day:
+                    mean_l = np.mean(l)
                     for t in range(len(l)):
-                        l.iloc[[t]] = np.mean(l) * random.uniform(0.20001, 0.79999)
+                        l.iloc[[t]] = mean_l * random.uniform(0.20001, 0.79999)
                 ls = ls + list(l)
             temp = pd.DataFrame(ls)
             n_df[c] = temp
