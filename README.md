@@ -32,7 +32,8 @@ python main.py
 
 **Dataset**
 
-- [Commission for Energy Regulation (CER)](https://www.ucd.ie/issda/data/commissionforenergyregulationcer/), set interval as 48, wavelet level as 4.
+- [Commission for Energy Regulation (CER)](https://www.ucd.ie/issda/data/commissionforenergyregulationcer/): set interval to 48, wavelet level to 4.  
+The initial link has expired; [available dataset (non-affiliated)](https://www.scidb.cn/en/detail?dataSetId=311c824cbbf94f70b2e21a56f368bd5f).
 ```
 Commission for Energy Regulation (CER). (2012). CER Smart Metering Project - Electricity Customer Behaviour Trial, 2009-2010 [dataset]. 1st Edition. Irish Social Science Data Archive. SN: 0012-00. https://www.ucd.ie/issda/data/commissionforenergyregulationcer/
 ```
